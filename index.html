@@ -1,3 +1,12 @@
+<!--
+    Name: Vincent Gordon
+    Email: vincent_gordon@student.uml.edu
+    Copyright (c) 2023 by Vincent.
+    Date of file creation: May 28th 2023 at 12:32 pm
+    Last updated by Vincent June 13th 2023 at 11:20 am
+    This web page displays the restraints of inputs followed by a form with numeric inputs corresponding to the minimum and maximum values for a multiplication table.
+-->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -18,11 +27,12 @@
                     <li>If an integer is less than -50, it will be set to -50.</li>
                 </ul>
                 <li>Decimal numbers will be rounded to the nearest whole number.</li>
-                <li>The minimum column value must be less than the maximum column value.</li>
-                <li>The minimum row value must be less than the maximum row value.</li>
+                <li>The minimum row value must be less than or equal to the maximum row value.</li>
+                <li>The minimum column value must be less than or equal to the maximum column value.</li>
             </ul>
 
-            <form method="post" id="form">
+            <!--Form to gather the minimums and maximums. The onsubmit is to ensure the page does not refresh, paired with the javascript.-->
+            <form method="post" id="form" onsubmit="return formSubmit();">
                 <label for="minRow">Minimum row value</label>
                 <input type="number" step="any" class="form-control" id="minRow" placeholder="-50">
 
@@ -38,7 +48,9 @@
                 <button type="submit" value="submit" class="btn btn-primary" id="createTable">Generate table</button>
             </form>
 
-            <div id="table"></div>
+            <!--This is the div that the table will be populated inside of, this the id of table.-->
+            <!--TODO: Make it a scrollable container.-->
+            <div id="table" class="overflow-auto"></div>
         </div>
 
         <script src="function.js"></script>
