@@ -1,3 +1,99 @@
+body {
+    background-image: url("images/circuit.jpg");
+}
+
+.credit {
+    font-size: 70%;
+    font-style: italic;
+}
+
+/*Center the content on the page.*/
+#page {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 8px double red; /*TODO: Change this color later.*/
+    max-width: 80%;
+    background-color: white; /*TODO: change this color. Maybe add image.*/
+    overflow: auto;
+}
+
+/*Center the rules section of the page and put a border around it so it is easy to see and distinguish.*/
+.rules {
+    border: 4px dotted black;
+    width: calc(100% - 50px);
+    margin-left: 25px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: underline;
+}
+
+ul {
+    display: inline-block;
+}
+
+.inner {
+    padding: 0;
+    margin-right: 150px;
+}
+
+li {
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+/*Emphasize the limits imposed on the user for inputs.*/
+em {
+    font-weight: bold;
+}
+
+/*Set up the form and table to be side by side. Sets the form to the left side with some basic margins to make it look nicer and add a border.*/
+form {
+    float: left;
+    border: 1px solid black;
+    width: 25%;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    margin-top: 25px;
+    height: 350px;
+    text-align: center;
+}
+
+/*Makes this become a scrollable container set within a certain, designated area within the page.*/
+table {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    display: block;
+    height: 350px;
+    width: 97%;
+    overflow: auto;
+    text-align: center;
+}
+
 td {
     border: 1px solid black;
 }
+
+label {
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+button {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/*Below is purely colors and styles. Above is for mostly positioning the objects, save for the background colors of the body and page.*/
