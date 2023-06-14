@@ -3,7 +3,7 @@
     Email: vincent_gordon@student.uml.edu
     Copyright (c) 2023 by Vincent.
     Date of file creation: May 28th 2023 at 12:32 pm
-    Last updated by Vincent June 13th 2023 at 11:20 am
+    Last updated by Vincent June 14th 2023 at 11:01 am
     This web page displays the restraints of inputs followed by a form with numeric inputs corresponding to the minimum and maximum values for a multiplication table.
 -->
 
@@ -36,22 +36,21 @@
             <!--Form to gather the minimums and maximums. The onsubmit is to ensure the page does not refresh, paired with the javascript.-->
             <form method="post" id="form" onsubmit="return formSubmit();">
                 <label for="minRow">Minimum row value</label>
-                <input type="number" step="any" class="form-control" id="minRow" placeholder="-50" onfocus="this.value=''" value="">
+                <input type="number" step="any" class="form-control" id="minRow" placeholder="-50">
 
                 <label for="maxRow">Maximum row value</label>
-                <input type="number" step="any" class="form-control" id="maxRow" placeholder="50" onfocus="this.value=''" value="">
+                <input type="number" step="any" class="form-control" id="maxRow" placeholder="50">
 
                 <label for="minCol">Minimum column value</label>
-                <input type="number" step="any" class="form-control" id="minCol" placeholder="-50" onfocus="this.value=''" value="">
+                <input type="number" step="any" class="form-control" id="minCol" placeholder="-50">
 
                 <label for="maxCol">Maximum column value</label>
-                <input type="number" step="any" class="form-control" id="maxCol" placeholder="50" onfocus="this.value=''" value="">
+                <input type="number" step="any" class="form-control" id="maxCol" placeholder="50">
 
                 <button type="submit" value="submit" class="btn btn-dark" id="createTable">Generate table</button>
             </form>
 
             <!--This is the div that the table will be populated inside of, this the id of table.-->
-            <!--TODO: Make it a scrollable container.-->
             <div id="table" class="overflow-auto"></div>
         </div>
 

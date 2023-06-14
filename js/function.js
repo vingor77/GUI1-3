@@ -4,19 +4,48 @@ button = document.getElementById("createTable");
 
 button.addEventListener("click", () => {
     /*
-    Gather data from the form and convert it from string to float.
-    Then round it to the nearest whole number with toFixed, which makes it a string.
-    Finally, convert back into a number. This is because the checks further down rely on it being a number value, not a string.
+        Gather data from the form and convert it from string to float.
+        Then round it to the nearest whole number with toFixed, which makes it a string. 
+        This allows me to check the length and handle massive numbers.
     */
-    var minRow = parseInt(parseFloat(document.getElementById("minRow").value).toFixed());
-    var maxRow = parseInt(parseFloat(document.getElementById("maxRow").value).toFixed());
-    var minCol = parseInt(parseFloat(document.getElementById("minCol").value).toFixed());
-    var maxCol = parseInt(parseFloat(document.getElementById("maxCol").value).toFixed());
+    var minRow = parseFloat(document.getElementById("minRow").value).toFixed();
+    var maxRow = parseFloat(document.getElementById("maxRow").value).toFixed();
+    var minCol = parseFloat(document.getElementById("minCol").value).toFixed();
+    var maxCol = parseFloat(document.getElementById("maxCol").value).toFixed();
     var table = document.getElementById("table");
-    table.innerHTML = ""; //This wipes the previous table.
+
+    //Resetting the page for the next prompt.
+    table.innerHTML = "";
+    document.getElementById("minRow").value = "";
+    document.getElementById("maxRow").value = "";
+    document.getElementById("minCol").value = "";
+    document.getElementById("maxCol").value = "";
 
     var minNum = -50;
     var maxNum = 50;
+
+    //Checking for any huge numbers since it will only read the first number if a huge number is input.
+    if (minCol.length > 8) {
+        minCol = maxNum;
+    }
+
+    if (minRow.length > 8) {
+        minRow = maxNum;
+    }
+
+    if (maxCol.length > 8) {
+        maxCol = maxNum;
+    }
+
+    if (maxRow.length > 8) {
+        maxRow = maxNum;
+    }
+
+    //Turn the inputs into ints so that it can be worked with easier.
+    minRow = parseInt(minRow);
+    maxRow = parseInt(maxRow);
+    minCol = parseInt(minCol);
+    maxCol = parseInt(maxCol);
 
     //Check if minimums are below -50 between all 4 values. The minimum can be adjusted by changing the maxNum variable above.
     if (minCol < minNum) {
@@ -35,8 +64,8 @@ button.addEventListener("click", () => {
         maxRow = minNum;
     }
 
-    //Checking for any above 50 between all 4 values. The maximum can be adjusted by changing the maxNum variable above.
-    if (minCol > maxNum) {
+    //Check if above 50 between all 4 values. The maximum can be adjusted.
+    if (minCol > maxNum || minCol.length < 8) {
         minCol = maxNum;
     }
 
@@ -58,10 +87,10 @@ button.addEventListener("click", () => {
     }
     else {
         if (minRow > maxRow) {
-            table.innerText = "The minimum row value cannot be smaller than the maximum row value."
+            table.innerHTML = "The <em>minimum row</em> value cannot be <em>smaller than</em> the <em>maximum row</em> value."
         }
         else {
-            table.innerText = "The minimum column value cannot be smaller than the maximum column value."
+            table.innerHTML = "The <em>minimum column</em> value cannot be <em>smaller than</em> the <em>maximum column</em> value."
         }
     }
 
@@ -87,10 +116,14 @@ function populateTable(table, minRow, maxRow, minCol, maxCol) {
         for (var j = minCol - 1; j <= maxCol; j++) {
             //Check if the data cell being added is a header (outside row and column) or a regular cell.
             if (i < minRow) {
-                row.appendChild(document.createElement('th'));
+                var th = document.createElement('th');
+                th.setAttribute('class', 'top');
+                row.appendChild(th);
             }
             else if (i >= minRow && j < minCol) {
-                row.appendChild(document.createElement('th'));
+                var th = document.createElement('th');
+                th.setAttribute('class', 'side');
+                row.appendChild(th);
             }
             else {
                 row.appendChild(document.createElement('td'));
