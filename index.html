@@ -17,12 +17,6 @@
     </head>
     <body>
         <div id="page">
-            <!--
-                As required by the image owner:
-                Link to source: https://www.freepik.com/free-vector/circuit-board-seamless-pattern_4546129.htm
-            -->
-            <a href="http://www.freepik.com" class="credit">Circuit background designed by macrovector_official / Freepik</a>
-
             <!--Stating the restrictions for the user blatantly and what will happen to an incorrect piece of data.-->
             <div class="rules">
                 <h1>Input restrictions:</h1>
@@ -42,18 +36,18 @@
             <!--Form to gather the minimums and maximums. The onsubmit is to ensure the page does not refresh, paired with the javascript.-->
             <form method="post" id="form" onsubmit="return formSubmit();">
                 <label for="minRow">Minimum row value</label>
-                <input type="number" step="any" class="form-control" id="minRow" placeholder="-50">
+                <input type="number" step="any" class="form-control" id="minRow" placeholder="-50" onfocus="this.value=''" value="">
 
                 <label for="maxRow">Maximum row value</label>
-                <input type="number" step="any" class="form-control" id="maxRow" placeholder="50">
+                <input type="number" step="any" class="form-control" id="maxRow" placeholder="50" onfocus="this.value=''" value="">
 
                 <label for="minCol">Minimum column value</label>
-                <input type="number" step="any" class="form-control" id="minCol" placeholder="-50">
+                <input type="number" step="any" class="form-control" id="minCol" placeholder="-50" onfocus="this.value=''" value="">
 
                 <label for="maxCol">Maximum column value</label>
-                <input type="number" step="any" class="form-control" id="maxCol" placeholder="50">
+                <input type="number" step="any" class="form-control" id="maxCol" placeholder="50" onfocus="this.value=''" value="">
 
-                <button type="submit" value="submit" class="btn btn-primary" id="createTable">Generate table</button>
+                <button type="submit" value="submit" class="btn btn-dark" id="createTable">Generate table</button>
             </form>
 
             <!--This is the div that the table will be populated inside of, this the id of table.-->

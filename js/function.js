@@ -64,6 +64,8 @@ button.addEventListener("click", () => {
             table.innerText = "The minimum column value cannot be smaller than the maximum column value."
         }
     }
+
+    minRow.innerText = "";
 })
 
 function populateTable(table, minRow, maxRow, minCol, maxCol) {
@@ -83,7 +85,17 @@ function populateTable(table, minRow, maxRow, minCol, maxCol) {
     for (var i = minRow - 1; i <= maxRow; i++) {
         var row = document.createElement('tr');
         for (var j = minCol - 1; j <= maxCol; j++) {
-            row.appendChild(document.createElement('td'));
+            //Check if the data cell being added is a header (outside row and column) or a regular cell.
+            if (i < minRow) {
+                row.appendChild(document.createElement('th'));
+            }
+            else if (i >= minRow && j < minCol) {
+                row.appendChild(document.createElement('th'));
+            }
+            else {
+                row.appendChild(document.createElement('td'));
+            }
+
             //check if negative j
             if (j < 0) {
                 if(i < minRow && j < minCol) {
