@@ -83,11 +83,10 @@ table {
     overflow: auto;
     text-align: center;
     table-layout: fixed;
-    position: relative;
-    border: 1px solid white;
+    border-collapse: separate;
 }
 
-td {
+td, th {
     border: 1px solid white;
     width: 35px;
 }
@@ -96,16 +95,12 @@ td {
     position: sticky;
     left: 0;
     background-color: #000000;
-    border-right: 1px solid white;
-    border-bottom: 1px solid white;
 }
 
 .top {
     position: sticky;
     top: 0;
     background-color: #000000;
-    border-right: 1px solid white;
-    border-bottom: 1px solid white;
 }
 
 label {
